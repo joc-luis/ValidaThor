@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Company></Company>
     <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageLicenseExpression></PackageLicenseExpression>
     <PackageIcon>mjolnir.png</PackageIcon>
     <PackageIconUrl />
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
@@ -12,10 +13,10 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>validation,validación,rules,reglas,validator</PackageTags>
     <RepositoryUrl>https://github.com/red-oker/ValidaThor</RepositoryUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Authors>Joc-Luis</Authors>
     <Copyright>Joc-Luis</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

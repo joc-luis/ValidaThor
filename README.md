@@ -4,11 +4,7 @@ ValidaThor es una biblioteca que ofrece distintos tipos de comprobaciones de dat
 
 ## Instalación
 
-Ua el administrador de paquetes [dotnet](https://www.nuget.org/packages/ValidaThor/) para realizar la instalación.
-
-```bash
-dotne install validathor
-```
+Usa el administrador de paquetes [dotnet](https://www.nuget.org/packages/ValidaThor/) para realizar la instalación.
 
 ## Uso
 
@@ -33,11 +29,13 @@ if(validathor.Fails()){
     }
 }
 
+
+// Elimina los mensajes de validación previos.
 validathor.Clear();
 
 ```
 
-### Api Net Core
+### AspNet Core
 
 ```c
 
@@ -325,14 +323,14 @@ El campo debe coincidir con un valor dado.
 
 ## Idiomas disponibles
 
-Los mensajes de validación están disponibles en más de 60 idiomas diferentes. Usé las mismas traducciones de [laravel](https://github.com/Laravel-Lang/lang). Los mensajes fuerón transcritos de manera automática, así que es posible que presente errores.
+Los mensajes de validación están disponibles en más de 60 idiomas diferentes. Se usan las mismas traducciones de [laravel](https://github.com/Laravel-Lang/lang). Los mensajes fuerón transcritos de manera automática, así que es posible que presenten errores.
 
 ## Contacto
 
-Cualquier duda, sugerencia, pregunta y/o amenaza de muerte [aquí](mailto:red-oker@protonmail.com)
+Cualquier duda, sugerencia, pregunta y/o amenaza de muerte [aquí](mailto:isc.jrenteria@outlook.com)
 
 ## Licencia
 
 [MIT](./LICENSE.md)
 
-Icono diseñado por [Darius Dan](https://www.flaticon.es/autores/darius-dan)
+Icono tomado de [Darius Dan](https://www.flaticon.es/autores/darius-dan)
