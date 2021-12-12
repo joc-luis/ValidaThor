@@ -10,7 +10,7 @@ Usa el administrador de paquetes [dotnet](https://www.nuget.org/packages/ValidaT
 
 ```c
 using ValidaThor;
-
+// Para descargar los lenguajes accede a ValidaThor/lang.
 Validathor validathor = new Validathor("./lang/es.json");
 
 validathor.Cadena("name", "J0n").Required().Alpha().Min(3).Max(10);
