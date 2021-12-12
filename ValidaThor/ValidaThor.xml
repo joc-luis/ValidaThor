@@ -1,0 +1,1175 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ValidaThor</name>
+    </assembly>
+    <members>
+        <member name="T:ValidaThor.Field">
+            <summary>
+            Mensajes de error
+            </summary>
+        </member>
+        <member name="P:ValidaThor.Field.Name">
+            <summary>
+            Nombre del campo
+            </summary>
+        </member>
+        <member name="P:ValidaThor.Field.Errors">
+            <summary>
+            Lista de errores
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Field.#ctor">
+            <summary>
+            Cargador de la clase
+            </summary>
+        </member>
+        <member name="T:ValidaThor.General">
+            <summary>
+            Funciones y propiedades compartidas por los diferentes tipos.
+            </summary>
+        </member>
+        <member name="F:ValidaThor.General.Fields">
+            <summary>
+            Lista de errores por campo.
+            </summary>
+        </member>
+        <member name="F:ValidaThor.General.Name">
+            <summary>
+            Nombre del campo a validar.
+            </summary>
+        </member>
+        <member name="F:ValidaThor.General.Messages">
+            <summary>
+            Lista de messages de error.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.General.LoadDictionary(System.String)">
+            <summary>
+            Carga los messages de error del archivo JSON
+            </summary>
+            <param name="path">
+            Dirección del archivo de messages de error.
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.AddError(System.String)">
+            <summary>
+            Añade un nuevo message de error.
+            </summary>
+            <param name="validation">
+            Nombre de la validación
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.AddError(System.String,System.String)">
+            <summary>
+            Añade un nuevo error.
+            </summary>
+            <param name="validation">
+            Nombre de la validación
+            </param>
+            <param name="payload">
+            Valor mínimo, valor máximo, longitud, campo secundario, fecha, valores.
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.AddError(System.String,System.Int32)">
+            <summary>
+            Añade un nuevo error.
+            </summary>
+            <param name="validation">
+            Nombre de la validación
+            </param>
+            <param name="payload">
+            Valor mínimo, valor máximo, longitud, campo secundario, fecha, valores.
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.AddError(System.String,System.Decimal,System.Decimal)">
+            <summary>
+            Añade un nuevo error.
+            </summary>
+            <param name="validation">
+            Nombre de la validación
+            </param>
+            <param name="min">
+            Límite mínimo.
+            </param>
+            <param name="max">
+            Límite máximo.
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.AddError(System.String,System.String,System.String)">
+            <summary>
+            Añade un nuevo error.
+            </summary>
+            <param name="validation">
+            Nombre de la validación
+            </param>
+            <param name="min">
+            Límite mínimo.
+            </param>
+            <param name="max">
+            Límite máximo.
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.AddError(System.String,System.String[])">
+            <summary>
+            Añade un nuevo error.
+            </summary>
+            <param name="validation">
+            Nombre de la validación
+            </param>
+            <param name="payload">
+            Dato extra.
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.AddField(System.String)">
+            <summary>
+            Añade un nuevo message de error a la lista de campos.
+            </summary>
+            <param name="error">
+            Mensaje de error.
+            </param>
+        </member>
+        <member name="M:ValidaThor.General.Errors">
+            <summary>
+            Lista de errores al ejecutar la validación.
+            </summary>
+            <returns>
+            Lista de messages de error.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.General.ErrorsPerField">
+            <summary>
+            Lista de errores por campo al ejecutar la validación.
+            </summary>
+            <returns>
+            Lista de los campos con error y sus respectivos messages.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.General.Fail">
+            <summary>
+            Indicia si la validación fue correcta o falló.
+            </summary>
+            <returns>
+            true si no hubo errores, false si hay campos invalidos.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.General.Clear">
+            <summary>
+            Elimina los messages de error.
+            </summary>
+        </member>
+        <member name="T:ValidaThor.Cadena">
+            <summary>
+            Validaciones para tipo String.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Cadena.#ctor(System.String)">
+            <summary>
+            Inicializa los parametros de la clase
+            </summary>
+            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+        </member>
+        <member name="F:ValidaThor.Cadena.Value">
+            <summary>
+            Valor del campo a evaluar
+            </summary>
+        </member>
+        <member name="F:ValidaThor.Cadena._Nullable">
+            <summary>
+            Indica si esta permitido que el valor sea nulo
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Cadena.Field(System.String,System.String)">
+            <summary>
+            Asigna el nombre y valor del campo a evaluar.
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor del campo
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.IsNull">
+            <summary>
+            Comprueba si el valor es nulo y esta permitido.
+            </summary>
+            <returns>
+            true si es valor es nulo y esta permitido false si no es así
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Accepted">
+            <summary>
+            Comprueba que el valor evaluado sea "yes", "on" o "true".
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.ActiveUrl">
+            <summary>
+            Comprueba que el valor sea una url accesible.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Alpha">
+            <summary>
+            Comprueba que el valor se componga unicamente de caracteres alfabéticos.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.AlphaDash">
+            <summary>
+            Comprueba que el valor solo contenga caracteres alfabéticos, guiones y guiones medios.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.AlphaNum">
+            <summary>
+            Compurbea que el valor solo contenga caracteres alfanuméricos.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Boolean">
+            <summary>
+            Comprueba si el valor es "true" o "false".
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Between(System.Int32,System.Int32)">
+            <summary>
+            Comprueba que el valor tenga una longitud entre dos valores
+            </summary>
+            <param name="min">
+            Longitud mínima
+            </param>
+            <param name="max">
+            Longitud máxima
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Confirmed(System.String)">
+            <summary>
+            Comprueba que el valor sea igual a otro usado como confirmación.
+            </summary>
+            <param name="valor">
+            Valor del campo de referencia
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Declined">
+            <summary>
+            Comprueba que el valor sea "no", "off" o "false"
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Different(System.String,System.String)">
+            <summary>
+            Comprueba que el valor sea difrente a un campo de referencia.
+            </summary>
+            <param name="nombre">
+            Nombre del campo de referencia
+            </param>
+            <param name="valor">
+            Valor del campo de referencia.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Email">
+            <summary>
+            Comprueba que el valor sea una dirección de email valida. Nota: Solo valida que sea un email, no que exista.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.EndsWith(System.String[])">
+            <summary>
+            Comprueba que el valor termine al menos con uno de los elementos dados.
+            </summary>
+            <param name="payload">
+            Elementos validos de terminación.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Gt(System.String)">
+            <summary>
+            Comprueba que el valor tenga una longitud mayor a la de un campo de referencia.
+            </summary>
+            <param name="valor">
+            Valor del campo de referencia.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Gte(System.String)">
+            <summary>
+            Comprueba que el valor tenga una longitud mayor o igual a la de un campo de referencia.
+            </summary>
+            <param name="valor">
+            Valor del campo de referencia.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.In(System.String[])">
+            <summary>
+            Comprueba que el valor este dentro de una lista de cadenas validas.
+            </summary>
+            <param name="payload">
+            Valores permitidos.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Integer">
+            <summary>
+            Comprueba que el valor sea un entero.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Ip">
+            <summary>
+            Comprueba que el valor sea una ip valida (IPv4 o IPv6)
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Ipv4">
+            <summary>
+            Comprueba que el valor sea una ipv4 valida.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Ipv6">
+            <summary>
+            Comprueba que el valor sea una ipv6 valida.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Json">
+            <summary>
+            Comprueba que el valor sea un cadena JSON valida.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Lt(System.String)">
+            <summary>
+            Comprueba que el valor tenga una longitud menor a la de una campo de referencia.
+            </summary>
+            <param name="valor">
+            Valor de campo de referencia.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Lte(System.String)">
+            <summary>
+            Comprueba que el valor tenga una longitud menor o igual a la de una campo de referencia.
+            </summary>
+            <param name="valor">
+            Valor de campo de referencia.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Max(System.Int32)">
+            <summary>
+            Comprueba que la longitud del valor no sea mayor al máximo establecido.
+            </summary>
+            <param name="max">
+            Longitud máxima.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Min(System.Int32)">
+            <summary>
+            Comprueba que la longitud del valor no sea menor al mínimo establecido.
+            </summary>
+            <param name="min">
+            Longitud máxima.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.NotIn(System.String[])">
+            <summary>
+            Comprueba que el valor no este dentro de una arreglo.
+            </summary>
+            <param name="payload">
+            Valores no permitidos
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.NotRegex(System.String)">
+            <summary>
+            Comprueba que el valor no cumpla con la expresión regular dada.
+            </summary>
+            <param name="pattern">
+            Expresion regular para evaluar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.NotRegex(System.Text.RegularExpressions.Regex)">
+            <summary>
+            Comrpueba que el valor no cumpla con la expresión regular dada
+            </summary>
+            <param name="regex">
+            Expresion regular para evaluar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Nullable">
+            <summary>
+            Permite que el valor sea nulo a partir del llamado de esta función. 
+            Nota: Esto desactiva las validaciones siguientes si el valor es nulo o con longitud igual a 0.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Numeric">
+            <summary>
+            Comprueba que el valor sea un numero entero o decimal.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Regex(System.String)">
+            <summary>
+            Comprueba que el valor cumpla con la expresión regular dada.
+            </summary>
+            <param name="pattern">
+            Expresión regular para evaluar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Regex(System.Text.RegularExpressions.Regex)">
+            <summary>
+            Comprueba que el valor cumpla con la expresión regular dada.
+            </summary>
+            <param name="regex">
+            Expresión regular para evaluar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Required">
+            <summary>
+            Forza a que el campo no sea null y tenga una longitud mayor a 0. 
+            Nota: Este es el estado por default, pero no mostrára el mensaje de error a menos que se especifique.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Same(System.String,System.String)">
+            <summary>
+            Comprueba que el campo sea igual a otro
+            </summary>
+            <param name="name">
+            Nombre del campo
+            </param>
+            <param name="value">
+            Valor de campo.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.StartsWith(System.String[])">
+            <summary>
+            Comprueba que el valor inicie al menos con uno de los elementos dados.
+            </summary>
+            <param name="payload">
+            Elementos validos de inicio.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Size(System.Int32)">
+            <summary>
+            Comprueba que el valor tenga una cierta cantidad de caracteres.
+            </summary>
+            <param name="longitud">
+            Cantidad de caracteres.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Cadena.Url">
+            <summary>
+            Comprueba que el valor sea una url valida.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="T:ValidaThor.Fecha">
+            <summary>
+            Validaciones para fechas
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Fecha.#ctor(System.String)">
+            <summary>
+            Inicializa los parametros de la clase
+            </summary>
+            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+        </member>
+        <member name="F:ValidaThor.Fecha.Value">
+            <summary>
+            Valor del campo a evaluar.
+            </summary>
+        </member>
+        <member name="F:ValidaThor.Fecha._Nullable">
+            <summary>
+            Inidica sí esta permitido que el valor sea nulo.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Fecha.Field(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Asigna el nombre y valor del campo a evaluar.
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor del campo
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.IsNull">
+            <summary>
+            Comprueba si el valor es nulo y esta permitido.
+            </summary>
+            <returns>
+            true si es valor es nulo y esta permitido false si no es así
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.After(System.DateTime)">
+            <summary>
+            Comprueba si la valor es una fecha posterior a la fecha proporcionada.
+            </summary>
+            <param name="payload">
+            Fecha para contrastar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.AfterOrEqual(System.DateTime)">
+            <summary>
+            Comprueba si el valor es una fecha es posterior o igual a la fecha proporcionada.
+            </summary>
+            <param name="payload">
+            Fecha para contrastar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.Before(System.DateTime)">
+            <summary>
+            Comprueba si el valor es una fecha es anterior a la fecha proprocionada.
+            </summary>
+            <param name="payload">
+            Fecha para contrastar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.BeforeOrEqual(System.DateTime)">
+            <summary>
+            Comprueba si el valor es una fecha es anterior o igual a la fecha proporcionada.
+            </summary>
+            <param name="payload">
+            Fecha para contrastar.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Cadena"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.Between(System.DateTime,System.DateTime)">
+            <summary>
+            Comprueba si el valor es una fecha ques esta entre dos fechas proporcionadas.
+            </summary>
+            <param name="min">
+            Fecha mínima permitida
+            </param>
+            <param name="max">
+            Fecha máxima permitida.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Fecha"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.Confirmed(System.DateTime)">
+            <summary>
+            Comprueba que el valor es una fecha igual al un campo de referencia.
+            </summary>
+            <param name="valor">
+            Valor del campo de referencia.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Fecha"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.Different(System.String,System.DateTime)">
+            <summary>
+            Comprueba que el valor sea una fecha difrente a un campo de referencia.
+            </summary>
+            <param name="nombre">
+            Nombre del campo de referencia
+            </param>
+            <param name="valor">
+            Valor del campo de referencia.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Fecha"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.Nullable">
+            <summary>
+            Permite que el valor sea nulo a partir de que es llamada. Nota: Esto causa que si es null sea ingorada por las evaluaciones siguientes.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Fecha"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.Required">
+            <summary>
+            Forza a que el valor sea diferente de null. Nota: Este es el estado por defecto.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Fecha"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Fecha.Same(System.String,System.DateTime)">
+            <summary>
+            Comprueba que el campo sea igual a otro
+            </summary>
+            <param name="name">
+            Nombre del campo
+            </param>
+            <param name="value">
+            Valor de campo.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:ValidaThor.Lista">
+            <summary>
+            Validaciones para listas
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Lista.#ctor(System.String)">
+            <summary>
+            Inicializa los parametros de la clase
+            </summary>
+            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+        </member>
+        <member name="F:ValidaThor.Lista.Valor">
+            <summary>
+            Valor del campo a evaluar.
+            </summary>
+        </member>
+        <member name="F:ValidaThor.Lista._Nullable">
+            <summary>
+            Indica si esta permitido que el valor sea nulo
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Lista.Field(System.String,System.Object)">
+            <summary>
+            Asigna el nombre y valor del campo a evaluar.
+            </summary>
+            <param name="name">
+            Nombre del campo
+            </param>
+            <param name="value">
+            Lista de valores <see cref="T:System.Collections.Generic.List`1"/>. 
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.IsNull">
+            <summary>
+            Comprueba si el valor es null y esta permitido.
+            </summary>
+            <returns>
+            true si el valor es null y esta permtido false si no.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Between(System.Int32,System.Int32)">
+            <summary>
+            Comprueba que la lista tenga una cantidad de elementos entre un rango dado.
+            </summary>
+            <param name="min">
+            Minima cantidad de elementos
+            </param>
+            <param name="max">
+            Maxima cantidad de elementos.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Confirmed(System.Object)">
+            <summary>
+            Comprueba que el valor sea igual al valor de referencia.
+            </summary>
+            <param name="valor">
+            Valor del referencia
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Different(System.String,System.Object)">
+            <summary>
+            Comprueba que el valor sea diferente a un campo de referencia.
+            </summary>
+            <param name="nombre">
+            Nombre del campo referencia
+            </param>
+            <param name="valor">
+            Valor del referencia
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Max(System.Int32)">
+            <summary>
+            Comprueba que el valor no supera un máximo de elementos.
+            </summary>
+            <param name="max">
+            Cantidad máxima de elementos.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Min(System.Int32)">
+            <summary>
+            Comprueba que el valor no supera un mínimo de elementos.
+            </summary>
+            <param name="min">
+            Cantidad minima de elementos.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Nullable">
+            <summary>
+            Permite que el valor sea nulo a partir de que se manda a llamar. 
+            Nota: Esto causa que todas las demás validaciones ignoren el valor si este es null o tiene 0 elementos.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Required">
+            <summary>
+            Obliga a que el valor no se null y tenga al menos 1 elemento. 
+            Nota: Este es el estado por defecto, pero el mensaje no se añadira a menos que la
+            validación esta presente.
+            </summary>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Lista.Same(System.String,System.Object)">
+            <summary>
+            Comprueba que el valor sea una lista igual al enviada como de referencia.
+            </summary>
+            <param name="name">
+            Nombre del campo
+            </param>
+            <param name="value">
+            Valor del campo <see cref="T:System.Collections.Generic.List`1"/>
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Lista"/>.
+            </returns>
+        </member>
+        <member name="T:ValidaThor.Numero">
+            <summary>
+            Validaciones para campos numericos
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Numero.#ctor(System.String)">
+            <summary>
+            Inicializa los parametros de la clase
+            </summary>
+            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+        </member>
+        <member name="F:ValidaThor.Numero.Value">
+            <summary>
+            Valor del campo.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Numero.Field(System.String,System.Object)">
+            <summary>
+            Asigna el nombre y valor del campo.
+            </summary>
+            <param name="name">
+            Nombre del campo
+            </param>
+            <param name="value">
+            Valor del campo <see cref="T:System.Int32"/>, <see cref="T:System.Single"/>, <see cref="T:System.Double"/>, <see cref="T:System.Decimal"/>.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:ValidaThor.Numero.Between(System.Decimal,System.Decimal)">
+            <summary>
+            Comprueba si el valor esta dentro de un rango dado.
+            </summary>
+            <param name="min">
+            Valor mínimo permitido
+            </param>
+            <param name="max">
+            Valor máximo permitido.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Numero"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Numero.Confirmed(System.Decimal)">
+            <summary>
+            Comprueba si el valor es igual al campo de referencia.
+            </summary>
+            <param name="payload">
+            Valor de confirmación.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Numero"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Numero.Different(System.String,System.Decimal)">
+            <summary>
+            Compruba que el valor sea diferente un campo de referencia.
+            </summary>
+            <param name="nombre">
+            Nombre del campo
+            </param>
+            <param name="valor">
+            Valor del campo
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Numero"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Numero.Max(System.Decimal)">
+            <summary>
+            Comprueba que el valor sea menor al máximo establecido.
+            </summary>
+            <param name="max">
+            Valor máximo.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Numero"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Numero.Min(System.Decimal)">
+            <summary>
+            Comprueba que el valor sea mínimo al establecido.
+            </summary>
+            <param name="min">
+            Valor mínimo.
+            </param>
+            <returns>
+            Instancia de <see cref="T:ValidaThor.Numero"/>.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Numero.Same(System.String,System.Object)">
+            <summary>
+            Comprueba que el campo sea igual a otro
+            </summary>
+            <param name="name">
+            Nombre del campo
+            </param>
+            <param name="value">
+            Valor de campo.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:ValidaThor.Validathor">
+            <summary>
+            Validaciones para diferentes tipos de datos.
+            </summary>
+        </member>
+        <member name="F:ValidaThor.Validathor._Cadena">
+            <summary>
+            Instancia de la clase Cadena <seealso cref="M:ValidaThor.Validathor.Cadena(System.String,System.String)"/>
+            </summary>
+        </member>
+        <member name="F:ValidaThor.Validathor._Fecha">
+            <summary>
+            Instancia de la clase Fecha <seealso cref="M:ValidaThor.Validathor.Fecha(System.String,System.Nullable{System.DateTime})"/>
+            </summary>
+        </member>
+        <member name="F:ValidaThor.Validathor._Lista">
+            <summary>
+            Instancia de la clase Lista <seealso cref="M:ValidaThor.Validathor.Lista(System.String,System.Object)"/>
+            </summary>
+        </member>
+        <member name="F:ValidaThor.Validathor._Numero">
+            <summary>
+            Instancia de la clase Numero <seealso cref="M:ValidaThor.Validathor.Numero(System.String,System.Decimal)"/>
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Validathor.#ctor(System.String)">
+            <summary>
+            Incializa los parametros de la clase
+            </summary>
+            <param name="path">
+            Ruta del diccionario de mensajes de error.
+            </param>
+        </member>
+        <member name="M:ValidaThor.Validathor.Cadena(System.String,System.String)">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.String"/>
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.Validathor.Cadena(System.String,System.String)"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Validathor.Fecha(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.Validathor.Fecha(System.String,System.Nullable{System.DateTime})"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Validathor.Lista(System.String,System.Object)">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.Collections.Generic.List`1"/>
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.Validathor.Lista(System.String,System.Object)"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Validathor.Numero(System.String,System.Decimal)">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.Int32"/>,  
+            <see cref="T:System.Double"/>, <see cref="T:System.Single"/>, <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.Validathor.Numero(System.String,System.Decimal)"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Validathor.Errors">
+            <summary>
+            Lista de errores en la validación.
+            </summary>
+            <returns>
+            La lista de errores en la validación.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Validathor.ErrorsPerField">
+            <summary>
+            Lista de errores en la validación.
+            </summary>
+            <returns>
+            La lista de errores en la validación.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.Validathor.Fail">
+            <summary>
+            Indicia si la validación fue correcta o falló.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ValidaThor.Validathor.Clear">
+            <summary>
+            Elimina los mensajes de error.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Validathor.LoadDictionary(System.String)">
+            <summary>
+            Carga un diccionario de mensajes de error.
+            </summary>
+            <param name="path">
+            Ruta del diccionario.
+            </param>
+        </member>
+        <member name="T:ValidaThor.IValidathor">
+            <summary>
+            Validaciones para diferentes tipos de datos.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.IValidathor.Cadena(System.String,System.String)">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.String"/>
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.IValidathor.Cadena(System.String,System.String)"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.IValidathor.Fecha(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.IValidathor.Fecha(System.String,System.Nullable{System.DateTime})"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.IValidathor.Lista(System.String,System.Object)">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.Collections.Generic.List`1"/>
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.IValidathor.Lista(System.String,System.Object)"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.IValidathor.Numero(System.String,System.Decimal)">
+            <summary>
+            Validaciones para datos de tipo <see cref="T:System.Int32"/>,  
+            <see cref="T:System.Double"/>, <see cref="T:System.Single"/>, <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="name">
+            Nombre del campo.
+            </param>
+            <param name="value">
+            Valor de campo
+            </param>
+            <returns>
+            Instancia de <see cref="M:ValidaThor.IValidathor.Numero(System.String,System.Decimal)"/>
+            </returns>
+        </member>
+        <member name="M:ValidaThor.IValidathor.Errors">
+            <summary>
+            Lista de errores al ejecutar la validación.
+            </summary>
+            <returns>
+            Lista de mensajes de error.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.IValidathor.ErrorsPerField">
+            <summary>
+            Lista de errores por campo al ejecutar la validación.
+            </summary>
+            <returns>
+            Lista de los campos con error y sus respectivos mensajes.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.IValidathor.Fail">
+            <summary>
+            Indicia si la validación fue correcta o falló.
+            </summary>
+            <returns>
+            true si no hubo errores, false si hay campos invalidos.
+            </returns>
+        </member>
+        <member name="M:ValidaThor.IValidathor.Clear">
+            <summary>
+            Elimina los mensajes de error.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.IValidathor.LoadDictionary(System.String)">
+            <summary>
+            Carga un diccionario de mensajes de error.
+            </summary>
+            <param name="path">
+            Ruta del diccionario.
+            </param>
+        </member>
+    </members>
+</doc>

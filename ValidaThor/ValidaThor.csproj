@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Company></Company>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageIcon>mjolnir.png</PackageIcon>
+    <PackageIconUrl />
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Description>ValidaThor proporciona diferentes reglas para validar los datos entrantes a su aplicación.</Description>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>validation,validación,rules,reglas,validator</PackageTags>
+    <RepositoryUrl>https://github.com/red-oker/ValidaThor</RepositoryUrl>
+    <PackageLicenseFile>..\LICENSE.md</PackageLicenseFile>
+    <Authors>Joc-Luis</Authors>
+    <Copyright>Joc-Luis</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>ValidaThor.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="mjolnir.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
