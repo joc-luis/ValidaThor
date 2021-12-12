@@ -4,7 +4,11 @@ ValidaThor es una biblioteca que ofrece distintos tipos de comprobaciones de dat
 
 ## Instalación
 
-Usa el administrador de paquetes [dotnet](https://www.nuget.org/packages/ValidaThor/) para realizar la instalación.
+Usa el administrador de paquetes [nuget](https://www.nuget.org/packages/ValidaThor/) para realizar la instalación.
+
+## Idiomas disponibles
+
+Los mensajes de validación están disponibles en más de 60 idiomas diferentes. Se usan las mismas traducciones de [laravel](https://github.com/Laravel-Lang/lang). Los mensajes fuerón transcritos de manera automática, así que es posible que presenten errores. Puedes descargar los mensajes de error [aquí](https://www.mediafire.com/file/omjbdtdu5lky3ok/lang.7z/file).
 
 ## Uso
 
