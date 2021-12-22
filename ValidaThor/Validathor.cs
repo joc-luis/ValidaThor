@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ValidaThor
@@ -33,11 +34,12 @@ namespace ValidaThor
 
 
 		/// <summary>
-		/// Incializa los parametros de la clase
+		/// Incializa los parametros de la clase.
 		/// </summary>
-		/// <param name="path">
-		/// Ruta del diccionario de mensajes de error.
-		/// </param>
+		/// <param name="path" >
+		/// Ruta del diccionario de mensajes de error. Los diccionarios estan disponibles para descargar
+		/// <see href="https://www.mediafire.com/file/omjbdtdu5lky3ok/lang.7z/file">aquí </see>
+		/// </param>		
 		public Validathor(String path)
 		{
 			this._Cadena = new Cadena(path);
@@ -164,11 +166,21 @@ namespace ValidaThor
 		/// <summary>
 		/// Indicia si la validación fue correcta o falló.
 		/// </summary>
+		/// <param name="makeException">
+		/// Si se especifica true, al encontrar errores en la validación se lanzará una excepción
+		/// de tipo <see cref="ValidathorException"/>, el mensaje será el primer error encontrado.
+		/// </param>
 		/// <returns></returns>
-		public Boolean Fail()
+		/// <exception cref="ValidathorException"></exception>
+		public Boolean Fail(Boolean makeException = false)
 		{
-			if (this.Errors().Count > 0)
+			var errors = this.ErrorsPerField();
+			if (errors.Count > 0)
 			{
+                if (makeException)
+                {
+					throw new ValidathorException(errors.First().Errors.First(), errors);
+                }
 				return true;
 			}
 
@@ -295,7 +307,7 @@ namespace ValidaThor
 		/// <returns>
 		/// true si no hubo errores, false si hay campos invalidos.
 		/// </returns>
-		Boolean Fail();
+		Boolean Fail(Boolean makeException = false);
 
 
 		/// <summary>

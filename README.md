@@ -14,7 +14,7 @@ Los mensajes de validación están disponibles en más de 60 idiomas diferentes.
 
 ```c
 using ValidaThor;
-// Para descargar los lenguajes accede a ValidaThor/lang.
+// Para descargar los lenguajes accede al repositorio y ve a la carpeta ValidaThor/lang,  adicionalmente puedes usar el link de arriba.
 Validathor validathor = new Validathor("./lang/es.json");
 
 validathor.Cadena("name", "J0n").Required().Alpha().Min(3).Max(10);
@@ -70,6 +70,26 @@ public ActionResult Get()
 	return Ok(_validathor.ErrorsPerField());
 }
 ```
+### Lanzando una excepción
+```
+[Test]
+     public void FirstError()
+     {
+         try
+         {
+             var validathor = new Validathor("./lang/es.json");
+             validathor.Cadena("Nombre", "J0hn").Alpha();
+             validathor.Fail(true);
+         }
+         catch(ValidathorException ex)
+         {
+             var fields = ex.Fields;
+             var errors = ex.Errors;
+            Console.WriteLine(ex.Message);
+         }
+         
+     }
+ ```
 
 ## Validaciones disponibles
 

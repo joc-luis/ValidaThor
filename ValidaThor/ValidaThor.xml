@@ -974,11 +974,12 @@
         </member>
         <member name="M:ValidaThor.Validathor.#ctor(System.String)">
             <summary>
-            Incializa los parametros de la clase
+            Incializa los parametros de la clase.
             </summary>
-            <param name="path">
-            Ruta del diccionario de mensajes de error.
-            </param>
+            <param name="path" >
+            Ruta del diccionario de mensajes de error. Los diccionarios estan disponibles para descargar
+            <see href="https://www.mediafire.com/file/omjbdtdu5lky3ok/lang.7z/file">aquí </see>
+            </param>		
         </member>
         <member name="M:ValidaThor.Validathor.Cadena(System.String,System.String)">
             <summary>
@@ -1053,11 +1054,16 @@
             La lista de errores en la validación.
             </returns>
         </member>
-        <member name="M:ValidaThor.Validathor.Fail">
+        <member name="M:ValidaThor.Validathor.Fail(System.Boolean)">
             <summary>
             Indicia si la validación fue correcta o falló.
             </summary>
+            <param name="makeException">
+            Si se especifica true, al encontrar errores en la validación se lanzará una excepción
+            de tipo <see cref="T:ValidaThor.ValidathorException"/>, el mensaje será el primer error encontrado.
+            </param>
             <returns></returns>
+            <exception cref="T:ValidaThor.ValidathorException"></exception>
         </member>
         <member name="M:ValidaThor.Validathor.Clear">
             <summary>
@@ -1150,7 +1156,7 @@
             Lista de los campos con error y sus respectivos mensajes.
             </returns>
         </member>
-        <member name="M:ValidaThor.IValidathor.Fail">
+        <member name="M:ValidaThor.IValidathor.Fail(System.Boolean)">
             <summary>
             Indicia si la validación fue correcta o falló.
             </summary>
@@ -1169,6 +1175,56 @@
             </summary>
             <param name="path">
             Ruta del diccionario.
+            </param>
+        </member>
+        <member name="T:ValidaThor.ValidathorException">
+            <summary>
+            Representa un error ocurrio durante la validación
+            </summary>
+        </member>
+        <member name="P:ValidaThor.ValidathorException.Fields">
+            <summary>
+            Lista de campos con sus respectivos errores de validación.
+            </summary>
+        </member>
+        <member name="P:ValidaThor.ValidathorException.Errors">
+            <summary>
+            Lista de errores de validación.
+            </summary>
+        </member>
+        <member name="M:ValidaThor.ValidathorException.#ctor">
+            <summary>
+            Representa un error ocurrio durante la validación
+            </summary>
+        </member>
+        <member name="M:ValidaThor.ValidathorException.#ctor(System.String)">
+            <summary>
+            Representa un error ocurrio durante la validación
+            </summary>
+            <param name="message">
+            Mensaje que explica el error ocurrido.
+            </param>
+        </member>
+        <member name="M:ValidaThor.ValidathorException.#ctor(System.String,System.Collections.Generic.List{ValidaThor.Field})">
+            <summary>
+            Representa un error ocurrio durante la validación
+            </summary>
+            <param name="message">
+            Mensaje que explica el error ocurrido
+            </param>
+            <param name="fields">
+            Lista de campos y sus respectivos errores.
+            </param>
+        </member>
+        <member name="M:ValidaThor.ValidathorException.#ctor(System.String,System.Exception)">
+            <summary>
+            Representa un error ocurrio durante la validación
+            </summary>
+            <param name="message">
+            Mensaje que explica el error ocurrido.
+            </param>
+            <param name="inner">
+            Causa de la excepcion.
             </param>
         </member>
     </members>
