@@ -8,14 +8,14 @@ Usa el administrador de paquetes [nuget](https://www.nuget.org/packages/ValidaTh
 
 ## Idiomas disponibles
 
-Los mensajes de validación están disponibles en más de 60 idiomas diferentes. Se usan las mismas traducciones de [laravel](https://github.com/Laravel-Lang/lang). Los mensajes fuerón transcritos de manera automática, así que es posible que presenten errores. Puedes descargar los mensajes de error [aquí](https://www.mediafire.com/file/omjbdtdu5lky3ok/lang.7z/file).
+Los mensajes de validación están disponibles en más de 60 idiomas diferentes. Se usan las mismas traducciones de [laravel](https://github.com/Laravel-Lang/lang). Los mensajes fuerón transcritos de manera automática, así que es posible que presenten errores. Ya no se hace uso de archivos JSON, los mensajes de error están directamente en el código.
 
 ## Uso
 
 ```c
 using ValidaThor;
-// Para descargar los lenguajes accede al repositorio y ve a la carpeta ValidaThor/lang,  adicionalmente puedes usar el link de arriba.
-Validathor validathor = new Validathor("./lang/es.json");
+
+Validathor validathor = new Validathor("es");
 
 validathor.Cadena("name", "J0n").Required().Alpha().Min(3).Max(10);
 validathor.Numero("age", 16).Required().Min(18);
@@ -47,7 +47,7 @@ validathor.Clear();
 using ValidaThor;
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddSingleton<IValidathor>(new Validathor("./lang/es.json"));
+    services.AddSingleton<IValidathor>(new Validathor("es"));
 }
 
 //Controlador
@@ -71,13 +71,13 @@ public ActionResult Get()
 }
 ```
 ### Lanzando una excepción
-```
+```c
 [Test]
      public void FirstError()
      {
          try
          {
-             var validathor = new Validathor("./lang/es.json");
+             var validathor = new Validathor("es");
              validathor.Cadena("Nombre", "J0hn").Alpha();
              validathor.Fail(true);
          }

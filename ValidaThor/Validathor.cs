@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,16 +36,15 @@ namespace ValidaThor
 		/// <summary>
 		/// Incializa los parametros de la clase.
 		/// </summary>
-		/// <param name="path" >
-		/// Ruta del diccionario de mensajes de error. Los diccionarios estan disponibles para descargar
-		/// <see href="https://www.mediafire.com/file/omjbdtdu5lky3ok/lang.7z/file">aquí </see>
+		/// <param name="name" >
+		/// Abreviatura del lenguaje a utilizar.
 		/// </param>		
-		public Validathor(String path)
+		public Validathor(String name)
 		{
-			this._Cadena = new Cadena(path);
-			this._Fecha = new Fecha(path);
-			this._Lista = new Lista(path);
-			this._Numero = new Numero(path);
+			this._Cadena = new Cadena(name);
+			this._Fecha = new Fecha(name);
+			this._Lista = new Lista(name);
+			this._Numero = new Numero(name);
 		}
 
 		/// <summary>
@@ -203,15 +202,15 @@ namespace ValidaThor
 		/// <summary>
 		/// Carga un diccionario de mensajes de error.
 		/// </summary>
-		/// <param name="path">
+		/// <param name="name">
 		/// Ruta del diccionario.
 		/// </param>
-		public void LoadDictionary(String path)
+		public void ChangeLanguage(String name)
 		{
-			_Cadena.LoadDictionary(path);
-			_Fecha.LoadDictionary(path);
-			_Lista.LoadDictionary(path);
-			_Numero.LoadDictionary(path);
+			_Cadena.ChangeLanguage(name);
+			_Fecha.ChangeLanguage(name);
+			_Lista.ChangeLanguage(name);
+			_Numero.ChangeLanguage(name);
 		}
 
 	}
@@ -301,12 +300,16 @@ namespace ValidaThor
 		List<Field> ErrorsPerField();
 
 
+
 		/// <summary>
 		/// Indicia si la validación fue correcta o falló.
 		/// </summary>
-		/// <returns>
-		/// true si no hubo errores, false si hay campos invalidos.
-		/// </returns>
+		/// <param name="makeException">
+		/// Si se especifica true, al encontrar errores en la validación se lanzará una excepción
+		/// de tipo <see cref="ValidathorException"/>, el mensaje será el primer error encontrado.
+		/// </param>
+		/// <returns></returns>
+		/// <exception cref="ValidathorException"></exception>
 		Boolean Fail(Boolean makeException = false);
 
 
@@ -316,11 +319,11 @@ namespace ValidaThor
 		void Clear();
 
 		/// <summary>
-		/// Carga un diccionario de mensajes de error.
+		/// Carga la lista de mensajes de error del lenguaje especificado.
 		/// </summary>
-		/// <param name="path">
-		/// Ruta del diccionario.
+		/// <param name="name">
+		/// Abreviatura del lenguaje.
 		/// </param>
-		void LoadDictionary(String path);
+		void ChangeLanguage(String name);
 	}
 }

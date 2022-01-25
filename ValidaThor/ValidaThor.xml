@@ -39,17 +39,12 @@
             Nombre del campo a validar.
             </summary>
         </member>
-        <member name="F:ValidaThor.General.Messages">
+        <member name="M:ValidaThor.General.ChangeLanguage(System.String)">
             <summary>
-            Lista de messages de error.
+            Cambia el lenguaje de los mensajes de error
             </summary>
-        </member>
-        <member name="M:ValidaThor.General.LoadDictionary(System.String)">
-            <summary>
-            Carga los messages de error del archivo JSON
-            </summary>
-            <param name="path">
-            Dirección del archivo de messages de error.
+            <param name="name">
+            Abreviatura del lenguaje
             </param>
         </member>
         <member name="M:ValidaThor.General.AddError(System.String)">
@@ -167,7 +162,7 @@
             <summary>
             Inicializa los parametros de la clase
             </summary>
-            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+            <param name="name">Abreviatura del lenguaje.</param>
         </member>
         <member name="F:ValidaThor.Cadena.Value">
             <summary>
@@ -564,7 +559,7 @@
             <summary>
             Inicializa los parametros de la clase
             </summary>
-            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+            <param name="name">Abreviatura del lenguaje.</param>
         </member>
         <member name="F:ValidaThor.Fecha.Value">
             <summary>
@@ -718,7 +713,7 @@
             <summary>
             Inicializa los parametros de la clase
             </summary>
-            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+            <param name="name">Abreviatura del lenguaje.</param>
         </member>
         <member name="F:ValidaThor.Lista.Valor">
             <summary>
@@ -855,7 +850,7 @@
             <summary>
             Inicializa los parametros de la clase
             </summary>
-            <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
+            <param name="name">Abreviatura del lenguaje.</param>
         </member>
         <member name="F:ValidaThor.Numero.Value">
             <summary>
@@ -947,6 +942,43 @@
             </param>
             <returns></returns>
         </member>
+        <member name="M:ValidaThor.Translate.Lang(System.String)">
+            <summary>
+            Obtiene los datos del lenguaje especificado
+            </summary>
+            <param name="name">
+            Abreviatura del lenguaje
+            </param>
+            <returns>
+            Mensajes de error del del lenguaje especificado.
+            </returns>
+        </member>
+        <member name="T:ValidaThor.Lang">
+            <summary>
+            Lenguaje y lista de mensajes de error
+            </summary>
+        </member>
+        <member name="P:ValidaThor.Lang.Name">
+            <summary>
+            Abreviatura del lenguaje
+            </summary>
+        </member>
+        <member name="P:ValidaThor.Lang.Errors">
+            <summary>
+            Lista de errores
+            </summary>
+        </member>
+        <member name="M:ValidaThor.Lang.Message(System.String)">
+            <summary>
+            Obtiene el mensaje correspondiente al error enviado como parametro
+            </summary>
+            <param name="error">
+            Error en la validación
+            </param>
+            <returns>
+            Mensaje de error para el usuario
+            </returns>
+        </member>
         <member name="T:ValidaThor.Validathor">
             <summary>
             Validaciones para diferentes tipos de datos.
@@ -976,9 +1008,8 @@
             <summary>
             Incializa los parametros de la clase.
             </summary>
-            <param name="path" >
-            Ruta del diccionario de mensajes de error. Los diccionarios estan disponibles para descargar
-            <see href="https://www.mediafire.com/file/omjbdtdu5lky3ok/lang.7z/file">aquí </see>
+            <param name="name" >
+            Abreviatura del lenguaje a utilizar.
             </param>		
         </member>
         <member name="M:ValidaThor.Validathor.Cadena(System.String,System.String)">
@@ -1070,11 +1101,11 @@
             Elimina los mensajes de error.
             </summary>
         </member>
-        <member name="M:ValidaThor.Validathor.LoadDictionary(System.String)">
+        <member name="M:ValidaThor.Validathor.ChangeLanguage(System.String)">
             <summary>
             Carga un diccionario de mensajes de error.
             </summary>
-            <param name="path">
+            <param name="name">
             Ruta del diccionario.
             </param>
         </member>
@@ -1160,21 +1191,24 @@
             <summary>
             Indicia si la validación fue correcta o falló.
             </summary>
-            <returns>
-            true si no hubo errores, false si hay campos invalidos.
-            </returns>
+            <param name="makeException">
+            Si se especifica true, al encontrar errores en la validación se lanzará una excepción
+            de tipo <see cref="T:ValidaThor.ValidathorException"/>, el mensaje será el primer error encontrado.
+            </param>
+            <returns></returns>
+            <exception cref="T:ValidaThor.ValidathorException"></exception>
         </member>
         <member name="M:ValidaThor.IValidathor.Clear">
             <summary>
             Elimina los mensajes de error.
             </summary>
         </member>
-        <member name="M:ValidaThor.IValidathor.LoadDictionary(System.String)">
+        <member name="M:ValidaThor.IValidathor.ChangeLanguage(System.String)">
             <summary>
-            Carga un diccionario de mensajes de error.
+            Carga la lista de mensajes de error del lenguaje especificado.
             </summary>
-            <param name="path">
-            Ruta del diccionario.
+            <param name="name">
+            Abreviatura del lenguaje.
             </param>
         </member>
         <member name="T:ValidaThor.ValidathorException">

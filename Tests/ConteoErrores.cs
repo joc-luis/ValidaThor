@@ -16,7 +16,7 @@ namespace Tests
 		[Test]
 		public void Accepted()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("confirmación", "yes").Accepted();
 			validathor.Cadena("confirmación", "on").Accepted();
 			validathor.Cadena("confirmación", "true").Accepted();
@@ -29,7 +29,7 @@ namespace Tests
 		[Test]
 		public void ActiveUrl()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("url", "https://generated.photos/face-generator/new").ActiveUrl();
 			validathor.Cadena("url", "https://www.klsajdlksad.com/").ActiveUrl();
 			validathor.Cadena("url", "true").ActiveUrl();
@@ -43,7 +43,7 @@ namespace Tests
 		[Test]
 		public void Alpha()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("Letras", "https://generated.photos/face-generator/new").Alpha();
 			validathor.Cadena("Letras", "https://www.klsajdlksad.com/").Alpha();
 			validathor.Cadena("Letras", "true").Alpha();
@@ -58,7 +58,7 @@ namespace Tests
 		[Test]
 		public void AlphaDash()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("Letras", "https://generated.photos/face-generator/new").AlphaDash();
 			validathor.Cadena("Letras", "https://www.klsajdlksad.com/").AlphaDash();
 			validathor.Cadena("Letras", "true").AlphaDash();
@@ -77,7 +77,7 @@ namespace Tests
 		[Test]
 		public void AlphaNum()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("Letras", "https://generated.photos/face-generator/new").AlphaNum();
 			validathor.Cadena("Letras", "https://www.klsajdlksad.com/").AlphaNum();
 			validathor.Cadena("Letras", "true").AlphaNum();
@@ -97,7 +97,7 @@ namespace Tests
 		[Test]
 		public void Boolean()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("booleano", "https://generated.photos/face-generator/new").Boolean();
 			validathor.Cadena("booleano", "https://www.klsajdlksad.com/").Boolean();
 			validathor.Cadena("booleano", "true").Boolean();
@@ -111,7 +111,7 @@ namespace Tests
 		[Test]
 		public void Confirmed()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("password", "https://generated.photos/face-generator/new").Confirmed("dsd");
 			validathor.Cadena("password", "https://www.klsajdlksad.com/").Confirmed("dsads");
 			validathor.Cadena("password", "1234567890").Confirmed("1234567890");
@@ -124,7 +124,7 @@ namespace Tests
 		[Test]
 		public void Declined()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("Acepta vender sus órganos", "https://generated.photos/face-generator/new").Declined();
 			validathor.Cadena("Acepta vender sus órganos", "https://www.klsajdlksad.com/").Declined();
 			validathor.Cadena("Acepta vender sus órganos", "no").Declined();
@@ -137,7 +137,7 @@ namespace Tests
 		[Test]
 		public void Different()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("Nueva contraseña", "1234567890").Different("Contraseña anterior", "1234567890");
 			validathor.Cadena("Nueva contraseña", "09876543210").Different("Contraseña anterior", "1234567890");
 			validathor.Cadena("Nueva contraseña", "no").Different("Contraseña anterior", "1234567890");
@@ -150,7 +150,7 @@ namespace Tests
 		[Test]
 		public void Between()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("password", "12345678").Between(10, 20);
 			validathor.Cadena("password", "123456789012345678901").Between(10, 20);
 			validathor.Cadena("password", "1234567890").Between(10, 20);
@@ -162,7 +162,7 @@ namespace Tests
 		[Test]
 		public void Email()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "email").Email();
 			validathor.Cadena("correo", "email@test.com").Email();
 			Assert.AreEqual(1, validathor.Errors().Count);
@@ -172,7 +172,7 @@ namespace Tests
 		public void EndsWith()
 		{
 			string[] ends = { "la", "os", "no" };
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "email").EndsWith(ends);
 			validathor.Cadena("correo", "Habla").EndsWith(ends);
 			validathor.Cadena("correo", "Operativos").EndsWith(ends);
@@ -185,7 +185,7 @@ namespace Tests
 		public void Gt()
 		{
 			string ends = "hola";
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "hola").Gt(ends);
 			validathor.Cadena("correo", "Ho").Gt(ends);
 			validathor.Cadena("correo", "Operativos").Gt(ends);
@@ -198,7 +198,7 @@ namespace Tests
 		public void Gte()
 		{
 			string ends = "hola";
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "hola").Gte(ends);
 			validathor.Cadena("correo", "Ho").Gte(ends);
 			validathor.Cadena("correo", "Operativos").Gte(ends);
@@ -212,7 +212,7 @@ namespace Tests
 		public void In()
 		{
 			string[] ends = { "la", "os", "no" };
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "os").In(ends);
 			validathor.Cadena("correo", "Habla").In(ends);
 			validathor.Cadena("correo", "Operativos").In(ends);
@@ -224,7 +224,7 @@ namespace Tests
 		[Test]
 		public void Integer()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("telefono", "1234567890").Integer();
 			validathor.Cadena("telefono", "1234567pop").Integer();
 			validathor.Cadena("telefono", "11.0").Integer();
@@ -234,7 +234,7 @@ namespace Tests
 		[Test]
 		public void Ip()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("ip", "12345.67890").Ip();
 			validathor.Cadena("ip", "fe80::1ce2:e22a:62df:6ec%17").Ip();
 			validathor.Cadena("ip", "11.0.0.0").Ip();
@@ -244,7 +244,7 @@ namespace Tests
 		[Test]
 		public void Ipv4()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("ip", "12345.67890").Ipv4();
 			validathor.Cadena("ip", "fe80::1ce2:e22a:62df:6ec%17").Ipv4();
 			validathor.Cadena("ip", "11.0.0.0").Ipv4();
@@ -254,7 +254,7 @@ namespace Tests
 		[Test]
 		public void Ipv6()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("ip", "12345.67890").Ipv6();
 			validathor.Cadena("ip", "fe80::1ce2:e22a:62df:6ec%17").Ipv6();
 			validathor.Cadena("ip", "11.0.0.0").Ipv6();
@@ -264,7 +264,7 @@ namespace Tests
 		[Test]
 		public void Json()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("json", "12345.67").Json();
 			validathor.Cadena("json", "fe80::1ce2:e22a:62df:6ec%17").Json();
 			validathor.Cadena("json", "11.0.0.0").Json();
@@ -276,7 +276,7 @@ namespace Tests
 		public void Lt()
 		{
 			string ends = "hola";
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "hola").Lt(ends);
 			validathor.Cadena("correo", "Ho").Lt(ends);
 			validathor.Cadena("correo", "Operativos").Lt(ends);
@@ -289,7 +289,7 @@ namespace Tests
 		public void Lte()
 		{
 			string ends = "hola";
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "hola").Lte(ends);
 			validathor.Cadena("correo", "Ho").Lte(ends);
 			validathor.Cadena("correo", "Operativos").Lte(ends);
@@ -301,7 +301,7 @@ namespace Tests
 		[Test]
 		public void Max()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("prueba", "hola").Max(2);
 			validathor.Cadena("prueba", "hola").Max(4);
 			validathor.Cadena("prueba", "hola").Max(3);
@@ -312,7 +312,7 @@ namespace Tests
 		[Test]
 		public void Min()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("prueba", "hola").Min(2);
 			validathor.Cadena("prueba", "hola").Min(4);
 			validathor.Cadena("prueba", "hola").Min(3);
@@ -324,7 +324,7 @@ namespace Tests
 		public void NotIn()
 		{
 			string[] ends = { "la", "os", "no" };
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "os").NotIn(ends);
 			validathor.Cadena("correo", "Habla").NotIn(ends);
 			validathor.Cadena("correo", "Operativos").NotIn(ends);
@@ -339,7 +339,7 @@ namespace Tests
 		public void NotRegexString()
 		{
 			string regex = "(^[a-z]+$)";
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "os").NotRegex(regex);
 			validathor.Cadena("correo", "Habla").NotRegex(regex);
 			validathor.Cadena("correo", "Operativos").NotRegex(regex);
@@ -352,7 +352,7 @@ namespace Tests
 		public void NotRegex()
 		{
 			Regex regex = new Regex("(^[a-z]+$)", RegexOptions.IgnoreCase);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "os").NotRegex(regex);
 			validathor.Cadena("correo", "Habla").NotRegex(regex);
 			validathor.Cadena("correo", "Operativos").NotRegex(regex);
@@ -365,7 +365,7 @@ namespace Tests
 		[Test]
 		public void Numeric()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("prueba", "10.5").Numeric();
 			validathor.Cadena("prueba", "10.0").Numeric();
 			validathor.Cadena("prueba", "5").Numeric();
@@ -377,7 +377,7 @@ namespace Tests
 		public void RegexString()
 		{
 			string regex = "(^[a-z]+$)";
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "os").Regex(regex);
 			validathor.Cadena("correo", "Habla").Regex(regex);
 			validathor.Cadena("correo", "Operativos").Regex(regex);
@@ -390,7 +390,7 @@ namespace Tests
 		public void Regex()
 		{
 			Regex regex = new Regex("(^[a-z]+$)", RegexOptions.IgnoreCase);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "os").Regex(regex);
 			validathor.Cadena("correo", "Habla").Regex(regex);
 			validathor.Cadena("correo", "Operativos").Regex(regex);
@@ -402,7 +402,7 @@ namespace Tests
 		[Test]
 		public void Required()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "os").Required();
 			validathor.Cadena("correo", "").Required();
 			validathor.Cadena("correo", null).Required();
@@ -416,7 +416,7 @@ namespace Tests
 		public void StartsWith()
 		{
 			string[] ends = { "em", "os", "no" };
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "email").StartsWith(ends);
 			validathor.Cadena("correo", "Habla").StartsWith(ends);
 			validathor.Cadena("correo", "Operativos").StartsWith(ends);
@@ -429,7 +429,7 @@ namespace Tests
 		public void Size()
 		{
 			int ends = 9;
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("correo", "email").Size(ends);
 			validathor.Cadena("correo", "Habla").Size(ends);
 			validathor.Cadena("correo", "123456789").Size(ends);
@@ -441,7 +441,7 @@ namespace Tests
 		[Test]
 		public void Url()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Cadena("url", "https://generated.photos/face-generator/new").Url();
 			validathor.Cadena("url", "https://www.klsajdlksad.com/").Url();
 			validathor.Cadena("url", "true").Url();
@@ -459,7 +459,7 @@ namespace Tests
 		{
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddDays(-1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual.Date).After(anterior.Date); //
 			validathor.Fecha("prueba", actual.Date).After(actual.Date);
 			validathor.Fecha("prueba", actual).After(actual);
@@ -474,7 +474,7 @@ namespace Tests
 		{
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddDays(-1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual.Date).AfterOrEqual(anterior.Date);//
 			validathor.Fecha("prueba", actual.Date).AfterOrEqual(actual.Date);//
 			validathor.Fecha("prueba", actual).AfterOrEqual(actual);//
@@ -489,7 +489,7 @@ namespace Tests
 		{
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddDays(-1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual.Date).Before(anterior.Date); //
 			validathor.Fecha("prueba", actual.Date).Before(actual.Date);
 			validathor.Fecha("prueba", actual).Before(actual);
@@ -504,7 +504,7 @@ namespace Tests
 		{
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddDays(-1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual.Date).BeforeOrEqual(anterior.Date);//
 			validathor.Fecha("prueba", actual.Date).BeforeOrEqual(actual.Date);//
 			validathor.Fecha("prueba", actual).BeforeOrEqual(actual);//
@@ -520,7 +520,7 @@ namespace Tests
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddSeconds(-1);
 			DateTime posterior = actual.AddSeconds(1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual).Between(anterior, posterior);
 			validathor.Fecha("prueba", actual).Between(posterior, anterior);
 			validathor.Fecha("prueba", actual).Between(actual, posterior);
@@ -536,7 +536,7 @@ namespace Tests
 		{
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddDays(-1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual.Date).Confirmed(anterior.Date);//
 			validathor.Fecha("prueba", actual.Date).Confirmed(actual.Date);//
 			validathor.Fecha("prueba", actual).Confirmed(actual);//
@@ -551,7 +551,7 @@ namespace Tests
 		{
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddDays(-1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual.Date).Different("fecha", anterior.Date);//
 			validathor.Fecha("prueba", actual.Date).Different("fecha", actual.Date);//
 			validathor.Fecha("prueba", actual).Different("fecha", actual);//
@@ -567,7 +567,7 @@ namespace Tests
 		{
 			DateTime actual = DateTime.Now;
 			DateTime anterior = actual.AddDays(-1);
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual.Date).Same("prueba2", anterior.Date);//
 			validathor.Fecha("prueba", actual.Date).Same("prueba2", actual.Date);//
 			validathor.Fecha("prueba", actual).Same("prueba2", actual);//
@@ -581,7 +581,7 @@ namespace Tests
 		public void Required()
 		{
 			DateTime actual = DateTime.Now;
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Fecha("prueba", actual).Required();
 			validathor.Fecha("prueba", null).Required();
 			Assert.AreEqual(1, validathor.Errors().Count);
@@ -607,7 +607,7 @@ namespace Tests
 			lista.Add("C");
 			lista.Add("D");
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Lista("prueba", lista).Between(1, 2);
 			validathor.Lista("prueba", lista).Between(1, 4);
 			validathor.Lista("prueba", lista).Between(1, 5);
@@ -627,7 +627,7 @@ namespace Tests
 			lista2.Add("A");
 			lista2.Add("B");
 			lista2.Add("C");
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Lista("prueba", lista).Confirmed(lista);
 			validathor.Lista("prueba", lista).Confirmed(lista2);
 
@@ -649,7 +649,7 @@ namespace Tests
 			lista2.Add("A");
 			lista2.Add("B");
 			lista2.Add("C");
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Lista("prueba", lista).Different("lista", lista);
 			validathor.Lista("prueba", lista).Different("lista", lista2);
 
@@ -671,7 +671,7 @@ namespace Tests
 			lista2.Add("A");
 			lista2.Add("B");
 			lista2.Add("C");
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Lista("prueba", lista).Same("lista2", lista);
 			validathor.Lista("prueba", lista).Same("lista2", lista2);
 
@@ -689,7 +689,7 @@ namespace Tests
 			lista.Add("C");
 			lista.Add("D");
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Lista("prueba", lista).Max(2);
 			validathor.Lista("prueba", lista).Max(4);
 			validathor.Lista("prueba", lista).Max(5);
@@ -705,7 +705,7 @@ namespace Tests
 			lista.Add("C");
 			lista.Add("D");
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Lista("prueba", lista).Min(2);
 			validathor.Lista("prueba", lista).Min(4);
 			validathor.Lista("prueba", lista).Min(5);
@@ -722,7 +722,7 @@ namespace Tests
 			lista.Add("C");
 			lista.Add("D");
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Lista("prueba", lista).Required();
 			validathor.Lista("prueba", null).Required();
 			validathor.Lista("prueba", new List<String>()).Required();
@@ -744,7 +744,7 @@ namespace Tests
 		[Test]
 		public void Between()
 		{
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Numero("prueba", numero).Between(40, 50);
 			validathor.Numero("prueba", numero).Between(1, 40);
 			validathor.Numero("prueba", numero).Between(1, 5);
@@ -755,7 +755,7 @@ namespace Tests
 		public void Confirmed()
 		{
 			
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Numero("prueba", numero).Confirmed(40);
 			validathor.Numero("prueba", numero).Confirmed(41);
 
@@ -767,7 +767,7 @@ namespace Tests
 		public void Different()
 		{
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Numero("prueba", numero).Different("numero", 40);
 			validathor.Numero("prueba", numero).Different("numero", 41);
 
@@ -778,7 +778,7 @@ namespace Tests
 		public void Same()
 		{
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Numero("prueba", numero).Same("prueba2", 40);
 			validathor.Numero("prueba", numero).Same("prueba2", 41);
 
@@ -789,7 +789,7 @@ namespace Tests
 		public void Max()
 		{
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Numero("prueba", numero).Max(40);
 			validathor.Numero("prueba", numero).Max(39);
 
@@ -800,7 +800,7 @@ namespace Tests
 		public void Min()
 		{
 
-			Validathor validathor = new Validathor("./lang/es.json");
+			Validathor validathor = new Validathor("es");
 			validathor.Numero("prueba", numero).Min(40);
 			validathor.Numero("prueba", numero).Min(49);
 

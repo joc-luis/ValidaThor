@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 namespace ValidaThor
 {
 
@@ -18,10 +17,10 @@ namespace ValidaThor
 		/// <summary>
 		/// Inicializa los parametros de la clase
 		/// </summary>
-		/// <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
-		public Cadena(String path)
+		/// <param name="name">Abreviatura del lenguaje.</param>
+		public Cadena(String name)
 		{
-			this.LoadDictionary(path);
+			this.ChangeLanguage(name);
 		}
 
 		/// <summary>
@@ -1009,10 +1008,10 @@ namespace ValidaThor
 		/// <summary>
 		/// Inicializa los parametros de la clase
 		/// </summary>
-		/// <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
-		public Fecha(String path)
+		/// <param name="name">Abreviatura del lenguaje.</param>
+		public Fecha(String name)
 		{
-			this.LoadDictionary(path);
+			this.ChangeLanguage(name);
 		}
 
 
@@ -1307,10 +1306,10 @@ namespace ValidaThor
 		/// <summary>
 		/// Inicializa los parametros de la clase
 		/// </summary>
-		/// <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
-		public Lista(String path)
+		/// <param name="name">Abreviatura del lenguaje.</param>
+		public Lista(String name)
 		{
-			this.LoadDictionary(path);
+			this.ChangeLanguage(name);
 		}
 
 		/// <summary>
@@ -1563,10 +1562,10 @@ namespace ValidaThor
 		/// <summary>
 		/// Inicializa los parametros de la clase
 		/// </summary>
-		/// <param name="path">Ruta donde se encuentra el diccionario de mensajes de error.</param>
-		public Numero(String path)
+		/// <param name="name">Abreviatura del lenguaje.</param>
+		public Numero(String name)
 		{
-			this.LoadDictionary(path);
+			this.ChangeLanguage(name);
 		}
 
 

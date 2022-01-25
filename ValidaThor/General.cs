@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,7 +10,9 @@ namespace ValidaThor
 	public class General
 	{
 
+		private Translate Translate = new Translate();
 
+		private Lang Lang = new Lang();
 		/// <summary>
 		/// Lista de errores por campo.
 		/// </summary>
@@ -21,23 +22,17 @@ namespace ValidaThor
 		/// Nombre del campo a validar.
 		/// </summary>
 		protected String Name = "";
-
-		/// <summary>
-		/// Lista de messages de error.
-		/// </summary>
-		private List<String[]> Messages = new List<String[]>();
 		
 
 		/// <summary>
-		/// Carga los messages de error del archivo JSON
+		/// Cambia el lenguaje de los mensajes de error
 		/// </summary>
-		/// <param name="path">
-		/// Dirección del archivo de messages de error.
+		/// <param name="name">
+		/// Abreviatura del lenguaje
 		/// </param>
-		public void LoadDictionary(String path)
+		public void ChangeLanguage(String name)
 		{
-			String text = File.ReadAllText(path);
-			this.Messages = JsonConvert.DeserializeObject<List<String[]>>(text);
+			this.Lang = this.Translate.Lang(name);
 		}
 
 
@@ -49,7 +44,7 @@ namespace ValidaThor
 		/// </param>
 		protected void AddError(String validation)
 		{
-			foreach (var message in this.Messages)
+			foreach (var message in this.Lang.Errors)
 			{
 				if (message[0] == validation)
 				{
@@ -74,7 +69,7 @@ namespace ValidaThor
 		/// </param>
 		protected void AddError(String validation, String payload)
 		{
-			foreach (var message in this.Messages)
+			foreach (var message in this.Lang.Errors)
 			{
 				if (message[0] == validation)
 				{
@@ -103,7 +98,7 @@ namespace ValidaThor
 		/// </param>
 		protected void AddError(String validation, int payload)
 		{
-			foreach (var message in this.Messages)
+			foreach (var message in this.Lang.Errors)
 			{
 				if (message[0] == validation)
 				{
@@ -136,7 +131,7 @@ namespace ValidaThor
 		/// </param>
 		protected void AddError(String validation, Decimal min, Decimal max)
 		{
-			foreach (var message in this.Messages)
+			foreach (var message in this.Lang.Errors)
 			{
 				if (message[0] == validation)
 				{
@@ -165,7 +160,7 @@ namespace ValidaThor
 		/// </param>
 		protected void AddError(String validation, String min, String max)
 		{
-			foreach (var message in this.Messages)
+			foreach (var message in this.Lang.Errors)
 			{
 				if (message[0] == validation)
 				{
@@ -192,7 +187,7 @@ namespace ValidaThor
 		protected void AddError(String validation, String[] payload)
 		{
 			String values = "";
-			foreach (var message in this.Messages)
+			foreach (var message in this.Lang.Errors)
 			{
 				if (message[0] == validation)
 				{

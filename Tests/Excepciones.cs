@@ -14,7 +14,7 @@ namespace Tests
         {
             try
             {
-                var validathor = new Validathor("./lang/es.json");
+                var validathor = new Validathor("es");
 
                 validathor.Cadena("Nombre", "J0hn").Alpha();
 
@@ -32,7 +32,7 @@ namespace Tests
         {
             try
             {
-                var validathor = new Validathor("./lang/es.json");
+                var validathor = new Validathor("es");
 
                 validathor.Cadena("Nombre", "J0hn").Alpha();
 
@@ -50,7 +50,7 @@ namespace Tests
         {
             try
             {
-                var validathor = new Validathor("./lang/es.json");
+                var validathor = new Validathor("es");
 
                 validathor.Cadena("Nombre", "J0hn").Alpha();
 
