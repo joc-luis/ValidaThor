@@ -63,7 +63,7 @@ namespace ValidaThor
 		/// </returns>
 		private Boolean IsNull()
 		{
-			if (this._Nullable && this.Value == null || this.Value.Length <= 0)
+			if (this._Nullable && (this.Value == null || this.Value.Length <= 0))
 			{
 				return true;
 			}

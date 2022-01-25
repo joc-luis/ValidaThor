@@ -227,7 +227,7 @@ namespace Tests
 		public void Min()
 		{
 			Validathor validathor = new Validathor("es");
-			validathor.Cadena("boolean", "{ya}").Min(5);
+			validathor.Cadena("boolean", "").Min(5);
 			Assert.AreEqual("Boolean debe contener al menos 5 caracteres.", validathor.Errors().First());
 
 		}
