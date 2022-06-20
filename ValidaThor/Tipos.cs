@@ -85,7 +85,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (!"yes on true".Split(" ").ToList().Contains(this.Value))
+			if (this.Value == null || !"yes on true".Split(" ").ToList().Contains(this.Value))
 			{
 				this.AddError("accepted");
 			}
@@ -104,6 +104,11 @@ namespace ValidaThor
 		{
 			try
 			{
+                if (this.IsNull())
+                {
+					return this;
+                }
+
 				var request = WebRequest.Create(this.Value).GetResponse().GetResponseStream();
 			}
 			catch (Exception)
@@ -131,7 +136,7 @@ namespace ValidaThor
 
 			Regex regex = new Regex("(^[a-záéíóúñ]+$)", RegexOptions.IgnoreCase);
 
-			if (!regex.IsMatch(this.Value))
+			if (this.Value == null || !regex.IsMatch(this.Value))
 			{
 				this.AddError("alpha");
 			}
@@ -155,7 +160,7 @@ namespace ValidaThor
 
 			Regex regex = new Regex("(^[a-z0-9áéíóúñ_-]+$)", RegexOptions.IgnoreCase);
 
-			if (!regex.IsMatch(this.Value))
+			if (this.Value == null || !regex.IsMatch(this.Value))
 			{
 				this.AddError("alpha_dash");
 			}
@@ -178,7 +183,7 @@ namespace ValidaThor
 
 			Regex regex = new Regex("(^[a-z0-9áéíóúñ]+$)", RegexOptions.IgnoreCase);
 
-			if (!regex.IsMatch(this.Value))
+			if (this.Value == null || !regex.IsMatch(this.Value))
 			{
 				this.AddError("alpha_num");
 			}
@@ -199,7 +204,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (this.Value != "true" && this.Value != "false")
+			if (this.Value == null || (this.Value.ToLower() != "true" && this.Value.ToLower() != "false"))
 			{
 				this.AddError("boolean");
 			}
@@ -226,7 +231,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (min >= this.Value.Length && this.Value.Length <= max)
+			if (this.Value == null || (min >= this.Value.Length && this.Value.Length <= max))
 			{
 				this.AddError("between", min, max);
 			}
@@ -276,7 +281,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (!"no off false".Split(" ").ToList().Contains(this.Value))
+			if (this.Value == null || !"no off false".Split(" ").ToList().Contains(this.Value))
 			{
 				this.AddError("declined");
 			}
@@ -330,7 +335,7 @@ namespace ValidaThor
 			}
 
 			try
-			{
+            {
 				new System.Net.Mail.MailAddress(this.Value);
 			}
 			catch (Exception)
@@ -357,6 +362,12 @@ namespace ValidaThor
 			{
 				return this;
 			}
+
+            if (this.Value == null)
+            {
+				this.AddError("ends_with", payload);
+				return this;
+            }
 
 			bool pass = false;
 			foreach (var item in payload)
@@ -393,7 +404,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (this.Value.Length <= valor.Length)
+			if (this.Value == null || this.Value.Length <= valor.Length)
 			{
 				this.AddError("gt", valor.Length);
 			}
@@ -419,7 +430,7 @@ namespace ValidaThor
 			}
 
 
-			if (this.Value.Length < valor.Length)
+			if (this.Value == null || this.Value.Length < valor.Length)
 			{
 				this.AddError("gte", valor.Length);
 			}
@@ -467,7 +478,7 @@ namespace ValidaThor
 
 			Regex regex = new Regex("^([0-9]+)$");
 
-			if (!regex.IsMatch(this.Value))
+			if (this.Value == null || !regex.IsMatch(this.Value))
 			{
 				this.AddError("integer");
 			}
@@ -493,11 +504,7 @@ namespace ValidaThor
 			{
 				var ip = IPAddress.Parse(this.Value);
 
-				if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork &&
-					ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6)
-				{
-					this.AddError("ip");
-				}
+			
 			}
 			catch (Exception)
 			{
@@ -619,7 +626,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (this.Value.Length >= valor.Length)
+			if (this.Value == null || this.Value.Length >= valor.Length)
 			{
 				this.AddError("lt", valor.Length);
 			}
@@ -644,7 +651,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (this.Value.Length > valor.Length)
+			if (this.Value == null || this.Value.Length > valor.Length)
 			{
 				this.AddError("lte", valor.Length);
 			}
@@ -669,7 +676,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (this.Value.Length > max)
+			if (this.Value == null || this.Value.Length > max)
 			{
 				this.AddError("max", max);
 			}
@@ -694,7 +701,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (this.Value.Length < min)
+			if (this.Value == null || this.Value.Length < min)
 			{
 				this.AddError("min", min);
 			}
@@ -745,7 +752,7 @@ namespace ValidaThor
 
 			Regex regex = new Regex(pattern);
 
-			if (regex.IsMatch(this.Value))
+			if (this.Value == null || regex.IsMatch(this.Value))
 			{
 				this.AddError("not_regex");
 			}
@@ -770,7 +777,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (regex.IsMatch(this.Value))
+			if (this.Value == null || regex.IsMatch(this.Value))
 			{
 				this.AddError("not_regex");
 			}
@@ -808,6 +815,10 @@ namespace ValidaThor
 
 			try
 			{
+                if (this.Value == null)
+                {
+					this.AddError("numeric");
+                }
 				Convert.ToDecimal(this.Value);
 			}
 			catch (Exception)
@@ -838,7 +849,7 @@ namespace ValidaThor
 
 			Regex regex = new Regex(pattern);
 
-			if (!regex.Match(this.Value).Success)
+			if (this.Value == null || !regex.Match(this.Value).Success)
 			{
 				this.AddError("regex");
 			}
@@ -863,7 +874,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (!regex.IsMatch(this.Value))
+			if (this.Value == null || !regex.IsMatch(this.Value))
 			{
 				this.AddError("regex");
 			}
@@ -933,6 +944,12 @@ namespace ValidaThor
 			{
 				return this;
 			}
+
+            if (this.Value == null)
+            {
+				this.AddError("starts_with", payload);
+				return this;
+            }
 			bool pass = false;
 			foreach (var item in payload)
 			{
@@ -967,7 +984,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (this.Value.Length != longitud)
+			if (this.Value == null || this.Value.Length != longitud)
 			{
 				this.AddError("size", longitud);
 			}
@@ -989,7 +1006,7 @@ namespace ValidaThor
 				return this;
 			}
 
-			if (!Uri.IsWellFormedUriString(this.Value, UriKind.Absolute))
+			if (this.Value == null || !Uri.IsWellFormedUriString(this.Value, UriKind.Absolute))
 			{
 				this.AddError("url");
 			}

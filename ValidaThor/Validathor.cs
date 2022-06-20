@@ -178,6 +178,7 @@ namespace ValidaThor
 			{
                 if (makeException)
                 {
+					this.Clear();
 					throw new ValidathorException(errors.First().Errors.First(), errors);
                 }
 				return true;

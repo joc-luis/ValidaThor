@@ -228,6 +228,8 @@ namespace Tests
 			validathor.Cadena("telefono", "1234567890").Integer();
 			validathor.Cadena("telefono", "1234567pop").Integer();
 			validathor.Cadena("telefono", "11.0").Integer();
+			validathor.Cadena("", "85211").Integer();
+			validathor.Cadena("", "12385").Integer();
 			Assert.AreEqual(2, validathor.Errors().Count);
 		}
 
